@@ -28,10 +28,15 @@ def chenillard(delai=0.3):
         delai (float): Délai entre chaque LED en secondes
     """
     # TODO : Implémenter l'effet chenillard
-    # Allumer LED 1, attendre, éteindre LED 1
-    # Allumer LED 2, attendre, éteindre LED 2
-    # Allumer LED 3, attendre, éteindre LED 3
-    # Répéter
+    GPIO.output(LED_ROUGE, GPIO.HIGH)
+    time.sleep(delai)
+    GPIO.output(LED_VERTE, GPIO.HIGH)
+    GPIO.output(LED_ROUGE, GPIO.LOW)
+    time.sleep(delai)
+    GPIO.output(LED_JAUNE, GPIO.HIGH)
+    GPIO.output(LED_VERTE, GPIO.LOW)
+    time.sleep(delai)
+    GPIO.output(LED_JAUNE, GPIO.LOW)
     pass
 
 def chenillard_allume(delai=0.3):
@@ -42,6 +47,11 @@ def chenillard_allume(delai=0.3):
         delai (float): Délai entre chaque LED en secondes
     """
     # TODO : Implémenter l'effet chenillard "qui reste allumé"
+    GPIO.output(LED_ROUGE, GPIO.HIGH)
+    time.sleep(delai)
+    GPIO.output(LED_VERTE, GPIO.HIGH)
+    time.sleep(delai)
+    GPIO.output(LED_JAUNE, GPIO.HIGH)
     pass
 
 def main():
@@ -60,6 +70,7 @@ def main():
     try:
         while True:
             # TODO : Appeler votre fonction chenillard
+            chenillard_allume(0.5)
             pass
 
     except KeyboardInterrupt:
